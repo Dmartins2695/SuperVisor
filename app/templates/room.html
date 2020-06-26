@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+    <p></p>
+    <p></p>
+    <h1>ROOM {{ roomName }}</h1>
+        <p>Acess Room Code: {{ roomCode}}</p>
+    <div>
+    <ul class="list-group">
+    {% for students in allStudents %}
+            <p></p>
+            <a href="{{ url_for('showStudentImages',roomName = roomName, roomCode = roomCode ,studentName = students.username) }}" class="list-group-item d-flex justify-content-between align-items-center">
+                {{ students.username }}
+                <span class="badge badge-primary badge-pill">{{ students.newImages }}  New Images</span>
+            </a>
+    {% endfor %}
+    </ul>
+    </div>
+
+
+
+{% endblock %}

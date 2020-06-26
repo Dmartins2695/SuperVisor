@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="imgs">
+    <file>SuperVisor.jpg</file>
+  </qresource>
+</RCC>

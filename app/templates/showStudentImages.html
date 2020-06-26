@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+    <h1>{{ studentName }}</h1>
+    {#    <img src="{{url_for('static', filename='/serverImages/14-06-2020_21-54-01.jpg') }}" alt="single">#}
+    {% for image in allImages %}
+        {% if image.roomCode == student.joinedRoom %}
+            <div>
+                <img src="{{ url_for('static', filename=image.image) }}" width="320" height="240"/>
+                <p>{{ image.timeStamp }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+    {% if student.status == 0 %}
+        {% if student.timeStamp is not none %}
+            <p> Logout time: {{ student.timeStamp }}</p>
+        {% endif %}
+    {% endif %}
+    {% if student.disable == 1 %}
+        {% if student.disabletimeStampo is not none %}
+            <p> WebCam Disable time: {{ student.disabletimeStampo }}</p>
+        {% endif %}
+    {% endif %}
+    {% if student.enable == 1 %}
+        {% if student.enabletimeStampo is not none %}
+            <p> WebCam Enable time: {{ student.enabletimeStampo }}</p>
+        {% endif %}
+    {% endif %}
+    <div>
+        <p></p>
+        <p></p>
+        <a href="{{ url_for('room',roomName = roomName, roomCode=roomCode) }}">
+            <button class="btn btn-primary" type="submit">Previous Page</button>
+        </a>
+    </div>
+
+{% endblock %}
